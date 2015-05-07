@@ -14,5 +14,26 @@ class RethinkServices<T> extends Table {
   }
   Table get table => r.table(tableName);
 
-  Insert insert(T record, [options]) => super.insert(encode(record), options);
+  Insert insertType(T record, {options}) {
+    return insert(encode(record), options);
+  }
+
+  Future insertNow(T record, {options, global_optargs})
+    => insertType(record, options: options).run(conn, global_optargs);
+
+  Future<T> getNow (String id, {global_optargs}) async
+  {
+    var record = await get(id).run(conn, global_optargs);
+    return record != null? encode(record): null;
+  }
+
+  Update updateTyped (String id, T record, {options})
+    => get(id).update(encode(record), options);
+
+  Future updateNow (String id, T record, {options, global_optargs})
+    => updateTyped(id, record, options: options).run(conn, global_optargs);
+
+  Future deleteNow (String id, {options, global_optargs})
+    => get(id).delete(options).run(conn, global_optargs);
+
 }
