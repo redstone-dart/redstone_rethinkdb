@@ -17,7 +17,7 @@ main () {
 }
 ```
 ### Useage 1
-By convention in Rethinkdb the connection is named and in Redstone is named dbConn, therefore you should specify `"dbConn"` inside `@app.Attr` and set the name of the variable to `conn`.
+By convention in Rethinkdb the connection is named `conn` and in Redstone is named `dbConn`, therefore you should specify `"dbConn"` inside `@app.Attr` and set the name of the variable to `conn`.
 ```dart
 @app.Route ('/someRoute')
 someRoute (@app.Attr("dbConn") Connection conn) async {
