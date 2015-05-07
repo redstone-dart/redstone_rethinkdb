@@ -70,7 +70,7 @@ includes some helper methods for basic CRUD operations; usually methods like `ge
  @app.Group('/users')
  @Encode()
  class ServiciosUsuario extends RethinkServices<User> {
-   ServiciosUsuario() : super('usuarios');
+   ServiciosUsuario() : super('users');
  
    @app.Route('/:id')
    Future<User> GET (String id) async {
