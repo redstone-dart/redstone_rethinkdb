@@ -1,6 +1,6 @@
 library redstone.rethinkdb;
 
-import 'package:redstone/server.dart' as app;
+import 'package:redstone/redstone.dart' as app;
 import 'package:rethinkdb_driver/rethinkdb_driver.dart';
 import 'package:rethinkdb_driver/rethinkdb_pool.dart';
 import 'package:redstone_mapper/database.dart';
