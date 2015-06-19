@@ -1,11 +1,11 @@
 name: redstone_rethinkdb
 version: 0.0.191
 author: Cristian Garcia <cgarcia.e88@gmail.com>
-description: MVC Plugin for Redstone
-homepage: https://github.com/redstone-dart/redstone-mvc-plugin
+description: RethinkDB Plugin for Redstone
+homepage: https://github.com/redstone-dart/redstone_rethinkdb
 environment:
   sdk: '>=1.9.1'
-documentation: https://github.com/redstone-dart/redstone-mvc-plugin
+documentation: https://github.com/redstone-dart/redstone_rethinkdb
 dependencies:
   redstone: '>=0.5.0 <0.6.0'
   rethinkdb_driver: ^2.0.1+1
