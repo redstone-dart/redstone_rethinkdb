@@ -58,6 +58,26 @@ someRoute (@app.Attr() RethinkConnection dbConn) async {
  ...
 }
 ```
+## ConfigRethink
+You can use a `ConfigRethink` instance to setup you database (and maybe handle changes in the future).
+```dart
+var config = new ConfigRethink(
+    host: "192.168.59.103",
+    port: 28015,
+    database: "app",
+    tables: [
+      new TableConfig("users",
+        secondaryIndexes: ["password"]),
+      new TableConfig("comments",
+        secondaryIndexes: ["userId"])
+    ]
+);
+await setupRethink(config);
+var dbManager = new RethinkDbManager.fromCongif(config);
+```
+The `table` property lets you specify your tables and secondary indexes within them and the `setupRethink` function with create these if they don't exist.
+You can also create a `RethinkDbManager` from the config using the named constructor `fromConfig` as shown above.
+
 ## RethinkServices
 Use `RethinkServices<T>` extends `Table` and lets you better structure your code and avoid error when repetively specifying the same table. It also
 includes some helper methods for basic CRUD operations; usually methods like `get` or `insert` but end int `Typed` or `Now`.
